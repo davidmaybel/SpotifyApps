@@ -6,7 +6,18 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+dotenv.config();
+
 app.use(bodyParser.json());
+
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch(err => {
+    console.error('Error connecting to MongoDB', err);
+});
 
 // Helper functions to read and write JSON files
 const readJsonFromFile = (filePath) => {
@@ -27,17 +38,17 @@ const writeJsonToFile = (filePath, data) => {
 };
 
 // File paths
-const albumsFilePath = path.join(__dirname, 'schema/albums.json');
-const artistsFilePath = path.join(__dirname, 'schema/artists.json');
-const tracksFilePath = path.join(__dirname, 'schema/tracks.json');
-const playlistsFilePath = path.join(__dirname, 'schema/playlists.json');
-const categoriesFilePath = path.join(__dirname, 'schema/categories.json');
-const categoriesIDFilePath = path.join(__dirname, 'schema/categoriesId.json');
-const categoriesPlaylistsFilePath = path.join(__dirname, 'schema/categoriesPlaylists.json');
-const newReleasesFilePath = path.join(__dirname, 'schema/newReleases.json');
-const MeFilePath = path.join(__dirname, 'schema/me.json');
-const MeFollowingFilePath = path.join(__dirname, 'schema/meFollowing.json');
-const MeTracksFilePath = path.join(__dirname, 'schema/meTracks.json');
+const albumsFilePath = path.join(__dirname, 'Models/albums.js');
+const artistsFilePath = path.join(__dirname, 'Models/artists.js');
+const tracksFilePath = path.join(__dirname, 'Models/tracks.js');
+const playlistsFilePath = path.join(__dirname, 'Models/playlists.js');
+const categoriesFilePath = path.join(__dirname, 'Models/categories.js');
+const categoriesIDFilePath = path.join(__dirname, 'Models/categoriesId.js');
+const categoriesPlaylistsFilePath = path.join(__dirname, 'Models/categoriesPlaylists.js');
+const newReleasesFilePath = path.join(__dirname, 'Models/newReleases.js');
+const MeFilePath = path.join(__dirname, 'Models/me.js');
+const MeFollowingFilePath = path.join(__dirname, 'Models/meFollowing.js');
+const MeTracksFilePath = path.join(__dirname, 'Models/meTracks.js');
 
 // Albums endpoints
 app.get('/albums', (req, res) => {

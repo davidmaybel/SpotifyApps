@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const newReleasesSchema = new mongoose.Schema(
 {
     "href": "https://api.spotify.com/v1/browse/new-releases",
     "items": [
@@ -46,3 +49,5 @@
     "previous": "",
     "total": 2
   }
+)
+module.exports = mongoose.model('meTracks', newReleasesSchema);

@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const artistSchema = new mongoose.Schema(
 [
     {
       "external_urls": {"spotify": "https://spotify.com/artist/1"},
@@ -11,4 +14,6 @@
       "type": "artist",
       "uri": "spotify:artist:1"
     }
-  ]
+  ])
+
+  module.exports = mongoose.model('Artist', artistSchema);

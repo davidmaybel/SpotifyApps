@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const categoryPlaylistsSchema = new mongoose.Schema(
 {
     "playlists": {
       "href": "https://api.spotify.com/v1/browse/categories/{category_id}/playlists",
@@ -34,3 +37,5 @@
       "total": 2
     }
   }
+)
+module.exports = mongoose.model('CategoryPlaylists', categoryPlaylistsSchema);

@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const playlistsSchema = new mongoose.Schema(
 [
     {
       "collaborative": false,
@@ -20,3 +23,5 @@
       "uri": "spotify:playlist:1"
     }
 ]
+)
+module.exports = mongoose.model('playlists', playlistsSchema);

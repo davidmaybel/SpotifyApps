@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const meFollowingSchema = new mongoose.Schema(
 {
     "artists": {
       "cursor": {
@@ -39,3 +42,5 @@
       "total": 1
     }
   }
+)
+module.exports = mongoose.model('meFollowing', meFollowingSchema);

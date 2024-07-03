@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const meSchema = new mongoose.Schema(
 {
   "birthdate": "1990-01-01",
   "country": "US",
@@ -16,3 +19,5 @@
   "type": "user",
   "uri": "spotify:user:your-user-id"
 }
+)
+module.exports = mongoose.model('me', meSchema);

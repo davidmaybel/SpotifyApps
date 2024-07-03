@@ -1,3 +1,7 @@
+const mongoose = require('mongoose');
+
+const meFollowingSchema = new mongoose.Schema(
+
 {
     "href": "https://api.spotify.com/v1/me/tracks",
     "items": [
@@ -62,3 +66,5 @@
     "previous": null,
     "total": 1
   }
+)
+module.exports = mongoose.model('meTracks', meTracksSchema);

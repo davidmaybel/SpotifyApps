@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+const albumSchema = new mongoose.Schema(
 [
     {
       "album_type": "album",
@@ -23,4 +25,6 @@
       "type": "album",
       "uri": "spotify:album:1"
     }
-  ]
+  ])
+
+  module.exports = mongoose.model('Album', albumSchema);

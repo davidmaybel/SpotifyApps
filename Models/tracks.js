@@ -1,3 +1,6 @@
+const mongoose = require('mongoose');
+
+const tracksSchema = new mongoose.Schema(
 [
     {
       "album": {"id": "1", "name": "Example Album 1"},
@@ -13,3 +16,5 @@
       "uri": "spotify:track:1"
     }
   ]
+)
+module.exports = mongoose.model('tracks', tracksSchema);
